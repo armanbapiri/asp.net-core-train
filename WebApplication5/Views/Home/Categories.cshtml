@@ -1,0 +1,37 @@
+﻿@model List<string>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row" dir="rtl">
+    <div class="col-12">
+
+        <table class="table text-end">
+            <thead>
+                <tr>
+
+                    <th>دسته بندی</th>
+                    <th>دسته بندی</th>
+                </tr>
+
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+
+                      
+                        <td>@Model.IndexOf(item)</td>
+                        <td>@item</td>
+
+
+                    </tr>
+
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

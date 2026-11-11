@@ -1,0 +1,44 @@
+﻿@using WebApplication5.Entity
+@using static WebApplication5.Controllers.HomeController
+@model List<Course>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row" dir="rtl">
+    <div class="col-12">
+
+        <table class="table text-end">
+            <thead>
+                <tr>
+                    <th>عنوان </th>
+                    <th>معلم</th>
+
+                </tr> 
+
+            </thead>
+            <tbody>
+                @{
+                    int index = 0;
+                }
+                @foreach (var item in Model)
+                {
+             
+                        index++;
+                    
+                    <tr>
+
+                        <td>
+                            @item.Title
+                        </td>
+
+                        <td>
+                            @index
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

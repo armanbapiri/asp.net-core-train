@@ -1,0 +1,35 @@
+﻿@using WebApplication5.Entity
+@model List<Teacher>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row" dir="rtl">
+    <div class="col-12">
+
+        <table class="table text-end">
+            <thead>
+                <tr>
+                    <th>شناسه</th>
+                  
+                    <th>معلم</th>
+                 
+                </tr>
+
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+
+                    </tr>
+
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
