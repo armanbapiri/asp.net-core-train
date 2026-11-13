@@ -45,7 +45,6 @@ namespace WebApplication5.Services
         }
 
 
-
         public bool Update(TEntity entity)
         {
             _context.Update<TEntity>(entity);
