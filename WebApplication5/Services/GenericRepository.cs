@@ -9,10 +9,16 @@ namespace WebApplication5.Services
     {
 
         //C
-        public int Create(TEntity entity)
+        public void Create(TEntity entity)
         {
             _context.Add<TEntity>(entity);
-            return entity.Id;
+
+        }
+
+        public async Task CreateAsync(TEntity entity)
+        {
+            await _context.AddAsync<TEntity>(entity);
+
         }
 
         //R
@@ -20,6 +26,7 @@ namespace WebApplication5.Services
         {
             return _context.Set<TEntity>();
         }
+
 
         public IQueryable<TEntity> Read(Expression<Func<TEntity, bool>> predicate)
         {
@@ -32,12 +39,27 @@ namespace WebApplication5.Services
         }
 
 
+        public async Task<TEntity> ReadAsync(int id)
+        {
+            return await _context.FindAsync<TEntity>(id);
+        }
+
+
 
         public bool Update(TEntity entity)
         {
             _context.Update<TEntity>(entity);
             return true;
         }
+
+
+        public async Task<bool> UpdateAsync(TEntity entity)
+        {
+            _context.Update<TEntity>(entity);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
 
 
         public bool Delete(TEntity entity)
